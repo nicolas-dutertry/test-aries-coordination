@@ -1,0 +1,21 @@
+<features name="test-aries-coordination"
+          xmlns="http://karaf.apache.org/xmlns/features/v1.3.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+
+    <feature name="test-aries-coordination" version="1.0.0" description="Test Aries Coordination">
+        <feature>aries-blueprint</feature>
+        <feature>jndi</feature>
+        <feature>transaction</feature>        
+        <feature>pax-jdbc-h2</feature>
+        <feature>pax-jdbc-config</feature>
+        <feature>pax-jdbc-pool-dbcp2</feature>
+        <feature>jpa</feature>
+        <feature>hibernate</feature>
+        <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+        <bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+        <bundle start-level="80">mvn:com.dutertry.test.aries.coordination/test-aries-coordination-entities/${project.version}</bundle>
+        <bundle start-level="80">mvn:com.dutertry.test.aries.coordination/test-aries-coordination-service/${project.version}</bundle>
+        <bundle start-level="80">mvn:com.dutertry.test.aries.coordination/test-aries-coordination-cmd/${project.version}</bundle>
+    </feature>
+</features>

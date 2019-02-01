@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+    xmlns:tx="http://aries.apache.org/xmlns/transactions/v2.0.0"
+    xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+    
+    <jpa:enable/>
+    <tx:enable/>
+    
+    <!-- This bean contains a @PersistenceContext EntityManager -->
+    <bean id="testRepository" class="com.dutertry.test.aries.coordination.service.impl.TestRepository"/>
+    
+    <bean id="testService" class="com.dutertry.test.aries.coordination.service.impl.TestServiceImpl">
+        <property name="testRepository" ref="testRepository"/>
+    </bean>
+    
+    <service interface="com.dutertry.test.aries.coordination.service.TestService" ref="testService"/>
+    
+</blueprint>
